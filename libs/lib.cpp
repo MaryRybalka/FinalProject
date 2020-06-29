@@ -368,7 +368,6 @@ MANUFACTURER_T Manager::getNewProductManufacturer() {
     cin >> man;
     return static_cast<MANUFACTURER_T>(man - 1);
 }
-
 void Manager::addInstrument(IProductWhithManufacturer *product) {
     cout << "Enter the number of type of insrument: " << endl;
     cout << "1. piano" << endl;
@@ -382,7 +381,6 @@ void Manager::addInstrument(IProductWhithManufacturer *product) {
     shop->addProduct(new Instrument(static_cast<INSTRUMENT_T>(res - 1), product->getPrice(), product->getNumber(),
                                     product->getManufacturer()));
 }
-
 void Manager::addCare(IProduct *product) {
     cout << "Enter the number of type of care: " << endl;
     cout << "1. polish" << endl;
@@ -394,7 +392,6 @@ void Manager::addCare(IProduct *product) {
     cin >> res;
     shop->addProduct(new Care(static_cast<CARE_T>(res - 1), product->getPrice(), product->getNumber()));
 }
-
 void Manager::addCD(IProduct *product) {
     cout << "Enter the number of type of CD: " << endl;
     cout << "1. rock" << endl;
