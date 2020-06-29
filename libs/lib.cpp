@@ -325,6 +325,7 @@ vector<IProduct *> Seller::showList() {
         }
     }
     return list;
+    //new
 }
 
 //Manager
