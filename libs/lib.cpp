@@ -344,21 +344,18 @@ PRODUCT_T Manager::getNewProductType() {
     cin >> type;
     return static_cast<PRODUCT_T>(type - 1);
 }
-
 int Manager::getNewProductNumber() {
     cout << "Enter the number of products:" << endl;
     int numb;
     cin >> numb;
     return numb;
 }
-
 int Manager::getNewProductPrice() {
     cout << "Enter the price of products:" << endl;
     int price;
     cin >> price;
     return price;
 }
-
 MANUFACTURER_T Manager::getNewProductManufacturer() {
     cout << "Enter the number of manufacturer:" << endl;
     cout << "1. yamaha " << endl;
@@ -461,7 +458,6 @@ void Manager::addProduct(IProduct *product) {
 }
 
 //Singletone
-
 Singletone::Singletone(PRODUCT_T t, int p, int n, MANUFACTURER_T man){
     type = t;
     price = p;
