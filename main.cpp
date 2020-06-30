@@ -30,9 +30,9 @@ void DirectorCode(MusicShop *shop){
             int number = manager->getNewProductNumber();
             if ((new_type != care) && (new_type != cd)){
                 MANUFACTURER_T manufacturer = manager->getNewProductManufacturer();
-                manager->addProduct(new Singletone(new_type, price, number, manufacturer));
+                manager->addProduct(new ProductInstance(new_type, price, number, manufacturer));
             }
-            else manager->addProduct(new Singletone(new_type, price, number));
+            else manager->addProduct(new ProductInstance(new_type, price, number));
         }
     }
 }
