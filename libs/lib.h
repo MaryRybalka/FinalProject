@@ -11,28 +11,6 @@ enum EQUIPMENT_T {cases, rack, remote, tripod, book};
 enum CD_T {rock, metal, hiphop, soft, pop, classic};
 enum MANUFACTURER_T {yamaha, gibson, roland, fender, steinway, harman};
 
-//class Product{
-//private:
-//    PRODUCT_T type;
-//    int price;
-//    int number;
-//protected:
-//    void setNumber(int value);
-//public:
-//    Product(PRODUCT_T _type, int _price, int _number);
-//    int getPrice() const;
-//    int getNumber() const;
-//    PRODUCT_T getType() const;
-//};
-//
-//class ProductWhithManufacturer: public Product {//
-//protected:
-//    MANUFACTURER_T manufacturer;
-//public:
-//    ProductWhithManufacturer(PRODUCT_T type, int price, int number, MANUFACTURER_T _manufacturer);
-//    MANUFACTURER_T getManufacturer();
-//};
-
 class IProduct{
 private:
     PRODUCT_T type;
@@ -96,7 +74,7 @@ public:
     void addProduct(IProduct *product);
 };
 
-class Singletone : public IProductWhithManufacturer{
+class ProductInstance : public IProductWhithManufacturer{
 private:
     int price;
     int number;
@@ -104,7 +82,7 @@ private:
     string name;
     PRODUCT_T type;
 public:
-    Singletone(PRODUCT_T t, int p, int n, MANUFACTURER_T man = MANUFACTURER_T(0));
+    ProductInstance(PRODUCT_T t, int p, int n, MANUFACTURER_T man = MANUFACTURER_T(0));
     int getPrice() const;
     PRODUCT_T getProdType() const;
     int getNumber() const;
@@ -127,7 +105,7 @@ public:
     vector<IProduct*> showList();
 };
 
-class Instrument : public IProduct{
+class Instrument : public IProductWhithManufacturer{
 private:
     int price;
     int number;
@@ -140,9 +118,10 @@ public:
     string toString();
     int getPrice() const;
     int getNumber() const;
+    MANUFACTURER_T getManufacturer();
 };
 
-class Equipment : public IProduct{
+class Equipment : public IProductWhithManufacturer{
 private:
     int price;
     int number;
@@ -157,9 +136,10 @@ public:
     string toString();
     int getPrice() const;
     int getNumber() const;
+    MANUFACTURER_T getManufacturer();
 };
 
-class Accessories : public IProduct{
+class Accessories : public IProductWhithManufacturer{
 private:
     int price;
     int number;
@@ -172,6 +152,7 @@ public:
     string toString();
     int getPrice() const;
     int getNumber() const;
+    MANUFACTURER_T getManufacturer();
 };
 
 class Care : public IProduct{

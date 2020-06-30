@@ -73,6 +73,10 @@ int Instrument::getNumber() const {
 PRODUCT_T Instrument::getProdType() const{
     return instrument;
 }
+MANUFACTURER_T Instrument::getManufacturer(){
+    return manufacturer;
+}
+
 string Instrument::toString(){
     string out = "";
     out += "instrument ";
@@ -125,6 +129,9 @@ int Equipment::getNumber() const {
 PRODUCT_T Equipment::getProdType() const{
     return equipment;
 }
+MANUFACTURER_T Equipment::getManufacturer(){
+    return manufacturer;
+}
 string Equipment::toString(){
     string out = "";
     out += "equipment, ";
@@ -168,6 +175,9 @@ int Accessories::getNumber() const {
 }
 PRODUCT_T Accessories::getProdType() const{
     return accessories;
+}
+MANUFACTURER_T Accessories::getManufacturer(){
+    return manufacturer;
 }
 string Accessories::toString(){
     string out = "";
@@ -454,25 +464,25 @@ void Manager::addProduct(IProduct *product) {
     (product->getProdType() == care) ? addCare(product) : addCD(product);
 }
 
-//Singletone
-Singletone::Singletone(PRODUCT_T t, int p, int n, MANUFACTURER_T man){
+//ProductInstance
+ProductInstance::ProductInstance(PRODUCT_T t, int p, int n, MANUFACTURER_T man){
     type = t;
     price = p;
     number = n;
     manufacturer = man;
 }
-int Singletone::getPrice() const{
+int ProductInstance::getPrice() const{
     return price;
 }
-PRODUCT_T Singletone::getProdType() const{
+PRODUCT_T ProductInstance::getProdType() const{
     return static_cast<PRODUCT_T>(type);
 }
-int Singletone::getNumber() const{
+int ProductInstance::getNumber() const{
     return number;
 }
-string Singletone::toString(){
+string ProductInstance::toString(){
     return "";
 }
-MANUFACTURER_T Singletone::getManufacturer(){
+MANUFACTURER_T ProductInstance::getManufacturer(){
     return  manufacturer;
 }
